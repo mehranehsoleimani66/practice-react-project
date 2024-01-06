@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const BlogList = ({ blogs }) => {
   return (
     <div className="blog-list">
@@ -9,6 +11,16 @@ const BlogList = ({ blogs }) => {
       ))}
     </div>
   );
+};
+
+BlogList.propTypes = {
+  blogs: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired
+    })
+  ).isRequired
 };
 
 export default BlogList;
